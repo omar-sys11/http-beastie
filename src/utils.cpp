@@ -23,7 +23,7 @@ http::response<http::string_body> handle_request(const http::request<http::strin
       res.body() = "<h1 style=\"text-align: center;\">404 Not Found</h1>";
     }
     if(req.target() == "/your-last-name") {
-      res.result(http::status::OK);
+      res.result(http::status::ok);
       res.body() =file_to_string("static/your-last-name.html");
     }
   } else {
