@@ -22,6 +22,10 @@ http::response<http::string_body> handle_request(const http::request<http::strin
       res.result(http::status::not_found);
       res.body() = "<h1 style=\"text-align: center;\">404 Not Found</h1>";
     }
+    if(req.target() == "/your-last-name") {
+      res.result(http::status::OK);
+      res.body() =file_to_string("static/your-last-name.html");
+    }
   } else {
     res.result(http::status::method_not_allowed);
     res.set(http::field::allow, "GET");
